@@ -1,0 +1,39 @@
+﻿@model IntervManut.Models.IntervencaoPeca
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>IntervencaoPeca</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IntervencaoPecaId" />
+            <div class="form-group">
+                <label asp-for="IntervencaoId" class="control-label"></label>
+                <select asp-for="IntervencaoId" class="form-control" asp-items="ViewBag.IntervencaoId"></select>
+                <span asp-validation-for="IntervencaoId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PecaId" class="control-label"></label>
+                <select asp-for="PecaId" class="form-control" asp-items="ViewBag.PecaId"></select>
+                <span asp-validation-for="PecaId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
