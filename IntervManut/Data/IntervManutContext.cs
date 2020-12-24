@@ -64,8 +64,8 @@ namespace IntervManut.Data
 
             modelBuilder.Entity<Equipamento>().HasData(
                   new Equipamento() { EquipamentoId = 1, CodEquipamento = "0001", Nome = "Outro Equipamento", LinhaProdId = 1 },
-                  new Equipamento() { EquipamentoId = 2, CodEquipamento = "0002", Nome = "Outro Equipamento", LinhaProdId = 2 },
-                  new Equipamento() { EquipamentoId = 3, CodEquipamento = "0003", Nome = "Outro Equipamento", LinhaProdId = 3 }
+                  new Equipamento() { EquipamentoId = 1, CodEquipamento = "0002", Nome = "Outro Equipamento", LinhaProdId = 2 },
+                  new Equipamento() { EquipamentoId = 1, CodEquipamento = "0003", Nome = "Outro Equipamento", LinhaProdId = 3 }
               );
         }
 
