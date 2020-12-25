@@ -11,7 +11,7 @@ namespace IntervManut.Models
         public int TecnicoIntervencaoId { get; set; }
 
         [ForeignKey("Tecnico")]
-        public int TecnicoId { get; set; }
+        public int? TecnicoId { get; set; }
 
         public Tecnico Tecnico { get; set; }
 

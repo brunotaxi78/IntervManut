@@ -35,7 +35,7 @@ namespace IntervManut.Models
         public Estado Estado { get; set; }
 
         [ForeignKey("TipoIntervencao")]
-        public int TipoIntevencaoId { get; set; }
+        public int TipoIntervencaoId { get; set; }
 
         public TipoIntervencao TipoIntervencao { get; set; }
 

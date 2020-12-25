@@ -74,7 +74,7 @@ namespace IntervManut.Controllers
             ViewData["EquipamentoId"] = new SelectList(_context.Equipamento, "EquipamentoId", "CodEquipamento", intervencao.EquipamentoId);
             ViewData["EstadoId"] = new SelectList(_context.Estado, "EstadoId", "Descricao", intervencao.EstadoId);
             ViewData["TecnicoId"] = new SelectList(_context.Set<Tecnico>(), "TecnicoId", "Nome", intervencao.TecnicoId);
-            ViewData["TipoIntevencaoId"] = new SelectList(_context.Set<TipoIntervencao>(), "TipoIntervencaoId", "Nome", intervencao.TipoIntevencaoId);
+            ViewData["TipoIntevencaoId"] = new SelectList(_context.Set<TipoIntervencao>(), "TipoIntervencaoId", "Nome", intervencao.TipoIntervencaoId);
             return View(intervencao);
         }
 
@@ -94,7 +94,7 @@ namespace IntervManut.Controllers
             ViewData["EquipamentoId"] = new SelectList(_context.Equipamento, "EquipamentoId", "CodEquipamento", intervencao.EquipamentoId);
             ViewData["EstadoId"] = new SelectList(_context.Estado, "EstadoId", "Descricao", intervencao.EstadoId);
             ViewData["TecnicoId"] = new SelectList(_context.Set<Tecnico>(), "TecnicoId", "Nome", intervencao.TecnicoId);
-            ViewData["TipoIntevencaoId"] = new SelectList(_context.Set<TipoIntervencao>(), "TipoIntervencaoId", "Nome", intervencao.TipoIntevencaoId);
+            ViewData["TipoIntevencaoId"] = new SelectList(_context.Set<TipoIntervencao>(), "TipoIntervencaoId", "Nome", intervencao.TipoIntervencaoId);
             return View(intervencao);
         }
 
@@ -133,7 +133,7 @@ namespace IntervManut.Controllers
             ViewData["EquipamentoId"] = new SelectList(_context.Equipamento, "EquipamentoId", "CodEquipamento", intervencao.EquipamentoId);
             ViewData["EstadoId"] = new SelectList(_context.Estado, "EstadoId", "Descricao", intervencao.EstadoId);
             ViewData["TecnicoId"] = new SelectList(_context.Set<Tecnico>(), "TecnicoId", "Nome", intervencao.TecnicoId);
-            ViewData["TipoIntevencaoId"] = new SelectList(_context.Set<TipoIntervencao>(), "TipoIntervencaoId", "Nome", intervencao.TipoIntevencaoId);
+            ViewData["TipoIntevencaoId"] = new SelectList(_context.Set<TipoIntervencao>(), "TipoIntervencaoId", "Nome", intervencao.TipoIntervencaoId);
             return View(intervencao);
         }
 
