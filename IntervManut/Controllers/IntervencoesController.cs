@@ -10,23 +10,23 @@ using IntervManut.Models;
 
 namespace IntervManut.Controllers
 {
-    public class IntervencaosController : Controller
+    public class IntervencoesController : Controller
     {
         private readonly IntervManutContext _context;
 
-        public IntervencaosController(IntervManutContext context)
+        public IntervencoesController(IntervManutContext context)
         {
             _context = context;
         }
 
-        // GET: Intervencaos
+        // GET: Intervencoes
         public async Task<IActionResult> Index()
         {
             var intervManutContext = _context.Intervencao.Include(i => i.Equipamento).Include(i => i.Estado).Include(i => i.Tecnico).Include(i => i.TipoIntervencao);
             return View(await intervManutContext.ToListAsync());
         }
 
-        // GET: Intervencaos/Details/5
+        // GET: Intervencoes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -48,22 +48,22 @@ namespace IntervManut.Controllers
             return View(intervencao);
         }
 
-        // GET: Intervencaos/Create
+        // GET: Intervencoes/Create
         public IActionResult Create()
         {
             ViewData["EquipamentoId"] = new SelectList(_context.Equipamento, "EquipamentoId", "CodEquipamento");
             ViewData["EstadoId"] = new SelectList(_context.Estado, "EstadoId", "Descricao");
-            ViewData["TecnicoId"] = new SelectList(_context.Set<Tecnico>(), "TecnicoId", "Nome");
-            ViewData["TipoIntevencaoId"] = new SelectList(_context.Set<TipoIntervencao>(), "TipoIntervencaoId", "Nome");
+            ViewData["TecnicoId"] = new SelectList(_context.Tecnico, "TecnicoId", "Nome");
+            ViewData["TipoIntervencaoId"] = new SelectList(_context.TipoIntervencao, "TipoIntervencaoId", "Descricao");
             return View();
         }
 
-        // POST: Intervencaos/Create
+        // POST: Intervencoes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IntervencaoId,Descricao,EquipamentoId,TecnicoId,DataCriacao,DataFim,EstadoId,TipoIntevencaoId,ResumoTrabalho")] Intervencao intervencao)
+        public async Task<IActionResult> Create([Bind("IntervencaoId,Descricao,EquipamentoId,TecnicoId,DataCriacao,DataFim,EstadoId,TipoIntervencaoId,ResumoTrabalho")] Intervencao intervencao)
         {
             if (ModelState.IsValid)
             {
@@ -73,12 +73,12 @@ namespace IntervManut.Controllers
             }
             ViewData["EquipamentoId"] = new SelectList(_context.Equipamento, "EquipamentoId", "CodEquipamento", intervencao.EquipamentoId);
             ViewData["EstadoId"] = new SelectList(_context.Estado, "EstadoId", "Descricao", intervencao.EstadoId);
-            ViewData["TecnicoId"] = new SelectList(_context.Set<Tecnico>(), "TecnicoId", "Nome", intervencao.TecnicoId);
-            ViewData["TipoIntevencaoId"] = new SelectList(_context.Set<TipoIntervencao>(), "TipoIntervencaoId", "Nome", intervencao.TipoIntervencaoId);
+            ViewData["TecnicoId"] = new SelectList(_context.Tecnico, "TecnicoId", "Nome", intervencao.TecnicoId);
+            ViewData["TipoIntervencaoId"] = new SelectList(_context.TipoIntervencao, "TipoIntervencaoId", "Descricao", intervencao.TipoIntervencaoId);
             return View(intervencao);
         }
 
-        // GET: Intervencaos/Edit/5
+        // GET: Intervencoes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -93,17 +93,17 @@ namespace IntervManut.Controllers
             }
             ViewData["EquipamentoId"] = new SelectList(_context.Equipamento, "EquipamentoId", "CodEquipamento", intervencao.EquipamentoId);
             ViewData["EstadoId"] = new SelectList(_context.Estado, "EstadoId", "Descricao", intervencao.EstadoId);
-            ViewData["TecnicoId"] = new SelectList(_context.Set<Tecnico>(), "TecnicoId", "Nome", intervencao.TecnicoId);
-            ViewData["TipoIntevencaoId"] = new SelectList(_context.Set<TipoIntervencao>(), "TipoIntervencaoId", "Nome", intervencao.TipoIntervencaoId);
+            ViewData["TecnicoId"] = new SelectList(_context.Tecnico, "TecnicoId", "Nome", intervencao.TecnicoId);
+            ViewData["TipoIntervencaoId"] = new SelectList(_context.TipoIntervencao, "TipoIntervencaoId", "Descricao", intervencao.TipoIntervencaoId);
             return View(intervencao);
         }
 
-        // POST: Intervencaos/Edit/5
+        // POST: Intervencoes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IntervencaoId,Descricao,EquipamentoId,TecnicoId,DataCriacao,DataFim,EstadoId,TipoIntevencaoId,ResumoTrabalho")] Intervencao intervencao)
+        public async Task<IActionResult> Edit(int id, [Bind("IntervencaoId,Descricao,EquipamentoId,TecnicoId,DataCriacao,DataFim,EstadoId,TipoIntervencaoId,ResumoTrabalho")] Intervencao intervencao)
         {
             if (id != intervencao.IntervencaoId)
             {
@@ -132,12 +132,12 @@ namespace IntervManut.Controllers
             }
             ViewData["EquipamentoId"] = new SelectList(_context.Equipamento, "EquipamentoId", "CodEquipamento", intervencao.EquipamentoId);
             ViewData["EstadoId"] = new SelectList(_context.Estado, "EstadoId", "Descricao", intervencao.EstadoId);
-            ViewData["TecnicoId"] = new SelectList(_context.Set<Tecnico>(), "TecnicoId", "Nome", intervencao.TecnicoId);
-            ViewData["TipoIntevencaoId"] = new SelectList(_context.Set<TipoIntervencao>(), "TipoIntervencaoId", "Nome", intervencao.TipoIntervencaoId);
+            ViewData["TecnicoId"] = new SelectList(_context.Tecnico, "TecnicoId", "Nome", intervencao.TecnicoId);
+            ViewData["TipoIntervencaoId"] = new SelectList(_context.TipoIntervencao, "TipoIntervencaoId", "Descricao", intervencao.TipoIntervencaoId);
             return View(intervencao);
         }
 
-        // GET: Intervencaos/Delete/5
+        // GET: Intervencoes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -159,7 +159,7 @@ namespace IntervManut.Controllers
             return View(intervencao);
         }
 
-        // POST: Intervencaos/Delete/5
+        // POST: Intervencoes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

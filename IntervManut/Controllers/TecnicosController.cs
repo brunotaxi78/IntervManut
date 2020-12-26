@@ -48,7 +48,7 @@ namespace IntervManut.Controllers
         // GET: Tecnicos/Create
         public IActionResult Create()
         {
-            ViewData["TipoTecId"] = new SelectList(_context.Set<TipoTec>(), "TipoTecId", "TipoTecId");
+            ViewData["TipoTecId"] = new SelectList(_context.TipoTec, "TipoTecId", "Tipo");
             return View();
         }
 
@@ -65,7 +65,7 @@ namespace IntervManut.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["TipoTecId"] = new SelectList(_context.Set<TipoTec>(), "TipoTecId", "TipoTecId", tecnico.TipoTecId);
+            ViewData["TipoTecId"] = new SelectList(_context.TipoTec, "TipoTecId", "Tipo", tecnico.TipoTecId);
             return View(tecnico);
         }
 
@@ -82,7 +82,7 @@ namespace IntervManut.Controllers
             {
                 return NotFound();
             }
-            ViewData["TipoTecId"] = new SelectList(_context.Set<TipoTec>(), "TipoTecId", "TipoTecId", tecnico.TipoTecId);
+            ViewData["TipoTecId"] = new SelectList(_context.TipoTec, "TipoTecId", "Tipo", tecnico.TipoTecId);
             return View(tecnico);
         }
 
@@ -91,7 +91,7 @@ namespace IntervManut.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("TecnicoId,Nome,Empresa,TipoTecId")] Tecnico tecnico)
+        public async Task<IActionResult> Edit(int id, [Bind("TecnicoId,Nome,Empresa,Tipo")] Tecnico tecnico)
         {
             if (id != tecnico.TecnicoId)
             {
@@ -118,7 +118,7 @@ namespace IntervManut.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["TipoTecId"] = new SelectList(_context.Set<TipoTec>(), "TipoTecId", "TipoTecId", tecnico.TipoTecId);
+            ViewData["TipoTecId"] = new SelectList(_context.TipoTec, "TipoTecId", "Tipo", tecnico.TipoTecId);
             return View(tecnico);
         }
 

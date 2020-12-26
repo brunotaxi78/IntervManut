@@ -55,7 +55,7 @@ namespace IntervManut
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Intervencoes}/{action=Index}/{id?}");
             });
         }
     }

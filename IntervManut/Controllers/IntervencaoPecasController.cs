@@ -50,7 +50,7 @@ namespace IntervManut.Controllers
         public IActionResult Create()
         {
             ViewData["IntervencaoId"] = new SelectList(_context.Intervencao, "IntervencaoId", "Descricao");
-            ViewData["PecaId"] = new SelectList(_context.Set<Peca>(), "PecaId", "Descricao");
+            ViewData["PecaId"] = new SelectList(_context.Peca, "PecaId", "Descricao");
             return View();
         }
 
@@ -68,7 +68,7 @@ namespace IntervManut.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["IntervencaoId"] = new SelectList(_context.Intervencao, "IntervencaoId", "Descricao", intervencaoPeca.IntervencaoId);
-            ViewData["PecaId"] = new SelectList(_context.Set<Peca>(), "PecaId", "Descricao", intervencaoPeca.PecaId);
+            ViewData["PecaId"] = new SelectList(_context.Peca, "PecaId", "Descricao", intervencaoPeca.PecaId);
             return View(intervencaoPeca);
         }
 
@@ -86,7 +86,7 @@ namespace IntervManut.Controllers
                 return NotFound();
             }
             ViewData["IntervencaoId"] = new SelectList(_context.Intervencao, "IntervencaoId", "Descricao", intervencaoPeca.IntervencaoId);
-            ViewData["PecaId"] = new SelectList(_context.Set<Peca>(), "PecaId", "Descricao", intervencaoPeca.PecaId);
+            ViewData["PecaId"] = new SelectList(_context.Peca, "PecaId", "Descricao", intervencaoPeca.PecaId);
             return View(intervencaoPeca);
         }
 
@@ -123,7 +123,7 @@ namespace IntervManut.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["IntervencaoId"] = new SelectList(_context.Intervencao, "IntervencaoId", "Descricao", intervencaoPeca.IntervencaoId);
-            ViewData["PecaId"] = new SelectList(_context.Set<Peca>(), "PecaId", "Descricao", intervencaoPeca.PecaId);
+            ViewData["PecaId"] = new SelectList(_context.Peca, "PecaId", "Descricao", intervencaoPeca.PecaId);
             return View(intervencaoPeca);
         }
 

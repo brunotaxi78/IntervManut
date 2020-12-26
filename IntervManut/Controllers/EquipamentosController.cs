@@ -48,7 +48,7 @@ namespace IntervManut.Controllers
         // GET: Equipamentos/Create
         public IActionResult Create()
         {
-            ViewData["LinhaProdId"] = new SelectList(_context.Set<LinhaProd>(), "LinhaProdId", "CodLinha");
+            ViewData["LinhaProdId"] = new SelectList(_context.LinhaProd, "LinhaProdId", "CodLinha");
             return View();
         }
 
@@ -65,7 +65,7 @@ namespace IntervManut.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["LinhaProdId"] = new SelectList(_context.Set<LinhaProd>(), "LinhaProdId", "CodLinha", equipamento.LinhaProdId);
+            ViewData["LinhaProdId"] = new SelectList(_context.LinhaProd, "LinhaProdId", "CodLinha", equipamento.LinhaProdId);
             return View(equipamento);
         }
 
@@ -82,7 +82,7 @@ namespace IntervManut.Controllers
             {
                 return NotFound();
             }
-            ViewData["LinhaProdId"] = new SelectList(_context.Set<LinhaProd>(), "LinhaProdId", "CodLinha", equipamento.LinhaProdId);
+            ViewData["LinhaProdId"] = new SelectList(_context.LinhaProd, "LinhaProdId", "CodLinha", equipamento.LinhaProdId);
             return View(equipamento);
         }
 
@@ -118,7 +118,7 @@ namespace IntervManut.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["LinhaProdId"] = new SelectList(_context.Set<LinhaProd>(), "LinhaProdId", "CodLinha", equipamento.LinhaProdId);
+            ViewData["LinhaProdId"] = new SelectList(_context.LinhaProd, "LinhaProdId", "CodLinha", equipamento.LinhaProdId);
             return View(equipamento);
         }
 

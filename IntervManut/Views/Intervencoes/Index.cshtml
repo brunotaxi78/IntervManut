@@ -1,0 +1,80 @@
+﻿@model IEnumerable<IntervManut.Models.Intervencao>
+
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+
+<p>
+    <a class="btn btn-outline-primary" asp-action="Create">Adicionar</a>
+</p>
+
+<table class="table table-hover" id="mydatatable">
+    <thead>
+        <tr class="bg-secondary">
+            <th>
+                #
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Equipamento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoIntervencao)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IntervencaoId)
+                </td>
+                <td>
+                    LP @Html.DisplayFor(modelItem => item.Equipamento.LinhaProdId) / @Html.DisplayFor(modelItem => item.Equipamento.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descricao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estado.Descricao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TipoIntervencao.Descricao)
+                </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IntervencaoId"><i  class="fa fa-edit"></i></a>
+                @*<a asp-action="Details" asp-route-id="@item.IntervencaoId"><i  class="fa fa-list"></i></a>
+                <a asp-action="Delete" asp-route-id="@item.IntervencaoId"><i class="fa fa-trash"></i></a>*@
+            </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+@section scripts{
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.23/af-2.3.5/datatables.min.css" />
+
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.23/af-2.3.5/datatables.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#mydatatable").DataTable()
+    });
+
+    //$('.table > tbody > tr').click(function () {
+
+    //    alert("teste");
+
+    //});
+</script>
+}
