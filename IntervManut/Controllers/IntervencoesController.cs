@@ -55,6 +55,7 @@ namespace IntervManut.Controllers
             ViewData["EstadoId"] = new SelectList(_context.Estado, "EstadoId", "Descricao");
             ViewData["TecnicoId"] = new SelectList(_context.Tecnico, "TecnicoId", "Nome");
             ViewData["TipoIntervencaoId"] = new SelectList(_context.TipoIntervencao, "TipoIntervencaoId", "Descricao");
+
             return View();
         }
 
@@ -75,6 +76,7 @@ namespace IntervManut.Controllers
             ViewData["EstadoId"] = new SelectList(_context.Estado, "EstadoId", "Descricao", intervencao.EstadoId);
             ViewData["TecnicoId"] = new SelectList(_context.Tecnico, "TecnicoId", "Nome", intervencao.TecnicoId);
             ViewData["TipoIntervencaoId"] = new SelectList(_context.TipoIntervencao, "TipoIntervencaoId", "Descricao", intervencao.TipoIntervencaoId);
+            intervencao.DataCriacao = DateTime.Now;
             return View(intervencao);
         }
 

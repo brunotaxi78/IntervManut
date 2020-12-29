@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -42,5 +43,6 @@ namespace IntervManut.Models
         public string ResumoTrabalho { get; set; }
 
         public ICollection<IntervencaoPeca> IntervencoesPecas { get; set; }
+
     }
 }

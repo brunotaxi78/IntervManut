@@ -4,14 +4,15 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-outline-primary" asp-action="Create">Adicionar</a>
 </p>
-<table class="table">
+<table class="table table-hover">
     <thead>
-        <tr>
+        <tr class="bg-secondary">
+            <th>
+                #
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.CodPeca)
             </th>
@@ -25,8 +26,12 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+        @foreach (var item in Model)
+        {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PecaId)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CodPeca)
             </td>
@@ -37,11 +42,11 @@
                 @Html.DisplayFor(modelItem => item.Quantidade)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.PecaId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.PecaId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.PecaId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.PecaId"><i class="fa fa-edit"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.PecaId"><i class="fa fa-list"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.PecaId"><i class="fa fa-trash"></i></a>
             </td>
         </tr>
-}
+        }
     </tbody>
 </table>
